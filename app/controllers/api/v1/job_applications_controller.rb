@@ -54,7 +54,18 @@ module Api
     end
 
     def change_app_to_seen
-      @job_app.update(status: true) if admin?
+      if admin?
+        @job_app.update(status: true)
+        send_mail_status_changed
+      end
+    end
+
+    def send_mail_status_changed
+      respond_to do |format|
+        UserMailer.with(user: @user).welcome_email.deliver_later
+        format.html { redirect_to(@user, notice: 'Your application has been viewed.') }
+        format.json { render json: @user, status: :created, location: @user }
+      end
     end
   end
 end

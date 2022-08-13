@@ -49,3 +49,9 @@ group :development do
   # gem "spring"
 end
 
+group :development, :test do
+  gem 'rspec', '~> 3.11'
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+end
+
+
