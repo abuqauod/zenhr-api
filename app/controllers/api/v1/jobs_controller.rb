@@ -30,13 +30,16 @@ module Api
       end
 
       def update
-        unless @jobs.update(job_params)
+        if admin?
+          @jobs.update(job_params)
           render json: { error: @jobs.errors.full_message }, status: :unprocessable_entity
+        else
+          render json: { error: @jobs.errors.full_message }, status: :unauthorized
         end
       end
 
       def destroy
-        @jobs.destroy
+        @jobs.destroy if admin?
       end
 
       def search

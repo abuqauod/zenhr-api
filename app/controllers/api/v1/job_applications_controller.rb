@@ -23,42 +23,39 @@ module Api
       def create
         @job_app = JobApplication.new(job_application_params)
 
-        if admin?
-          if @job_app.save
-            render json: @job_app, status: :created
-          else
-            render json: { error: @job_app.errors.full_message }, status: :unprocessable_entity
-          end
+        if @job_app.save
+          render json: @job_app, status: :created
         else
-          render json: { error: @job_app.errors.full_message }, status: :unauthorized
-        end
-      end
-
-      def update
-        unless @job_app.update(job_application_params)
           render json: { error: @job_app.errors.full_message }, status: :unprocessable_entity
         end
       end
+    end
 
-      def destroy
-        @job_app.destroy
+    def update
+      unless @job_app.update(job_application_params)
+        render json: { error: @job_app.errors.full_message }, status: :unprocessable_entity
       end
+    end
 
-      private
+    def destroy
+      @job_app.destroy unless admin?
+    end
 
-      def job_application_params
-        params.permit(
-          :title,
-          :user_id,
-          :job_id,
-          :status,
-          :expiry_date
-        )
-      end
+    private
 
-      def change_app_to_seen
-        @job_app.update(status: true) if admin?
-      end
+    def job_application_params
+      params.permit(
+        :title,
+        :user_id,
+        :job_id,
+        :status,
+        :expiry_date
+      )
+    end
+
+    def change_app_to_seen
+      @job_app.update(status: true) if admin?
     end
   end
 end
+
