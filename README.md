@@ -35,4 +35,8 @@ you will get a **token** to validate your session
 
 also note that if the logged in user is an `admin` then the status of the application will be changed to **`TRUE`**.
 
-5. to be continued``... 
+............................
+
+- elastic search enabled and not functional, due to lake of time and knowledge.
+
+to be continued``... 
