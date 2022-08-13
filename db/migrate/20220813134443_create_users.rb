@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :username
       t.string :email
-      t.string :is_admin_boolean
-      t.string :password_digest_string
+      t.string :is_admin
+      t.string :password_digest
 
       t.timestamps
     end
