@@ -6,7 +6,15 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :jobs, :users
+
+      resource :jobs, :users, :job_application
+
+      get 'jobs/index'
+      get 'jobs/show'
+
+      get 'job_application/index'
+      get 'job_application/show'
+
     end
   end
   post '/auth/login', to: 'authentication#login'
