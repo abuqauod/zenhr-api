@@ -94,4 +94,4 @@ also note that if the logged in user is an `admin` then the status of the applic
 - Add the Expiry date to the job post so it won't appear to the job seeker after a specific date`[Done]`
 - Use ElasticSearch to search for keywords in the Job Description `[implmeneted but not functional]`
 - Implement a simple client using a frontend framework of your choice that consumes your API
-- Implement CI using Travis and use Coverall for code coverage and insert their badges into your readme file
+- Implement CI using Travis and use Coverall for code coverage and insert their badges into your readme file.
