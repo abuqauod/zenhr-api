@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-      resource :jobs, :users, :job_application
+      resource :jobs, :users, :job_application do
+        collection do
+          get :search
+        end
+      end
 
       get 'jobs/index'
       get 'jobs/show'

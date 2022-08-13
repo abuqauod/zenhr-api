@@ -39,6 +39,15 @@ module Api
         @jobs.destroy
       end
 
+      def search
+        @jobs = Job.search(params[:q].to_s)
+        if @jobs
+          render json: @jobs, status: :ok
+        else
+          render json: { error: @jobs.errors.full_message }, status: :no_content
+        end
+      end
+
       private
 
       def job_params
