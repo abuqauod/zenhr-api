@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_13_134443) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_13_180349) do
+  create_table "job_applications", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.integer "job_id"
+    t.boolean "status"
+    t.date "expiry_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "desc"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
     t.string "email"
-    t.string "is_admin_boolean"
-    t.string "password_digest_string"
+    t.boolean "is_admin"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

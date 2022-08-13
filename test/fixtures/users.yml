@@ -4,12 +4,12 @@ one:
   name: MyString
   username: MyString
   email: MyString
-  is_admin_boolean: MyString
-  password_digest_string: MyString
+  is_admin: MyString
+  password_digest: MyString
 
 two:
   name: MyString
   username: MyString
   email: MyString
-  is_admin_boolean: MyString
-  password_digest_string: MyString
+  is_admin: MyString
+  password_digest: MyString
