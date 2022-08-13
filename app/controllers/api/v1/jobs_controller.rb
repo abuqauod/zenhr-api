@@ -11,7 +11,7 @@ module Api
       end
 
       def show
-        @jobs = Job.all
+        @jobs = Job.all.where("expiry_date > ?", DateTime.now.beginning_of_day.to_i * 1000)
         render json: @jobs, status: :ok
       end
 
@@ -50,6 +50,7 @@ module Api
           render json: { error: @jobs.errors.full_message }, status: :no_content
         end
       end
+
 
       private
 
