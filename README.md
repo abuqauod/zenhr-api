@@ -12,6 +12,8 @@
    --form 'username="test"'
    `
 
+![](../../Desktop/singup.png)
+
 also please note that you need send the params as **form-data** if you are using postman
 
 you will get a **token** to validate your session
@@ -23,11 +25,17 @@ you will get a **token** to validate your session
    --form 'email="test@test.com"' \
    --form 'password="123123"'`
 
+![](../../Desktop/login.png)
+
+
 3. To fetch any of the **jobs** CRUD operation here is an example:
 
    `curl --location --request GET 'http://localhost:3000/api/v1/jobs' \
    --header 'Authorization: Bearer xxxxxxxxxxxxxxxxx.xxxxxxxxxxxx.xxxxxxxxxxxxx'
    `
+
+![](../../Desktop/list of jobs.png)
+
 
 4. To fetch any of the **job_applications** CRUD operation here is an example:
    `curl --location --request GET 'http://localhost:3000/api/v1/job_application?id=2' \
